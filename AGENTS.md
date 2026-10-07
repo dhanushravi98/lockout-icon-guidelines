@@ -1,6 +1,6 @@
 # Brand design guidelines: rules for AI coding tools
 
-Source of truth for icons and icon colors. Follow it when building UI.
+Source of truth for icons. Follow it when building UI.
 Nothing needs to be installed or built. Read everything from the live site.
 
 Site: https://dhanushravi98.github.io/lockout-icon-guidelines
@@ -15,8 +15,4 @@ Site: https://dhanushravi98.github.io/lockout-icon-guidelines
 - Import the component named in `p`: `import { ShieldCheck } from "@phosphor-icons/react"`.
 
 ## Weights
-- Default is `regular`. Use `fill` for selected or active states. Others: `thin`, `light`, `bold`, `duotone`.
-
-## Duotone with two colors
-- The React package cannot set a second color. Fetch `https://dhanushravi98.github.io/lockout-icon-guidelines/icons/duotone/<name>.svg` and inline it. The lighter layer is the path with `opacity="0.2"`. Give it its own `fill`, and set `opacity="1"` for a solid second color.
-
+- Default is `regular`. Use `fill` for selected or active states. Others: `thin`, `light`, `bold`. Never use the `duotone` weight.
