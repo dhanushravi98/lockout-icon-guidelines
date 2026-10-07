@@ -1,13 +1,22 @@
 # Brand design guidelines: rules for AI coding tools
 
-This repo is the source of truth for icons. Follow it when building UI.
+Source of truth for icons and icon colors. Follow it when building UI.
+Nothing needs to be installed or built. Read everything from the live site.
 
-## Setup (once per checkout)
-Run npm install && npm run build. This generates dist/, which holds the icon manifest and SVG files. dist/ is generated and not committed, so never edit it.
+Site: https://dhanushravi98.github.io/lockout-icon-guidelines
 
-## Icons
-- The web app is React. Use @phosphor-icons/react. Do not draw, invent or download other icons.
-- Find icons by searching dist/data/manifest.json. Each entry has n (file name, like shield-check), p (React component name, like ShieldCheck), c (categories) and t (tags). Search names and tags before guessing.
-- Default weight is regular. Use fill for selected or active states.
-- The React package cannot set a second color for the duotone weight. If a design needs two colors, inline the SVG from dist/icons/duotone/<name>.svg. The lighter layer is the path with opacity="0.2"; give it its own fill.
+## Finding an icon
+- The web app is React. Use `@phosphor-icons/react`. Do not draw, invent or download other icons.
+- Search the manifest. It is about 200 KB, so filter it instead of reading all of it (requires `jq`):
+
+  curl -s https://dhanushravi98.github.io/lockout-icon-guidelines/data/manifest.json | jq -r --arg q "alert" '.icons[] | select((.n | contains($q)) or any(.t[]; contains($q))) | "\(.n)\t\(.p)"'
+
+- Each entry has `n` (file name), `p` (React component name, like `ShieldCheck`), `c` (categories) and `t` (tags). If nothing matches, try synonyms.
+- Import the component named in `p`: `import { ShieldCheck } from "@phosphor-icons/react"`.
+
+## Weights
+- Default is `regular`. Use `fill` for selected or active states. Others: `thin`, `light`, `bold`, `duotone`.
+
+## Duotone with two colors
+- The React package cannot set a second color. Fetch `https://dhanushravi98.github.io/lockout-icon-guidelines/icons/duotone/<name>.svg` and inline it. The lighter layer is the path with `opacity="0.2"`. Give it its own `fill`, and set `opacity="1"` for a solid second color.
 
