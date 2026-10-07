@@ -16,3 +16,6 @@ Site: https://dhanushravi98.github.io/lockout-icon-guidelines
 
 ## Weights
 - Default is `regular`. Use `fill` for selected or active states. Others: `thin`, `light`, `bold`. Never use the `duotone` weight.
+
+## Existing code
+- Apply these rules only to icons you add or change. If you notice an existing icon that breaks them, mention it, but don't rewrite it unless asked.
