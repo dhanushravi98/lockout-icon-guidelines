@@ -1,0 +1,34 @@
+{
+  "name": "Kioti",
+  "company": "Kioti",
+  "order": 2,
+  "logo": "logo.png",
+  "groups": [
+    {
+      "name": "Brand",
+      "colors": [
+        { "name": "Kioti orange", "hex": "#E8380D" },
+        { "name": "Black", "hex": "#000000" },
+        { "name": "Charcoal", "hex": "#2B2B2B" }
+      ]
+    },
+    {
+      "name": "Status",
+      "colors": [
+        { "name": "Error", "hex": "#C62828" },
+        { "name": "Warning", "hex": "#F59E0B" },
+        { "name": "Success", "hex": "#2E7D32" },
+        { "name": "Info", "hex": "#1976D2" }
+      ]
+    },
+    {
+      "name": "Neutral",
+      "colors": [
+        { "name": "Dark gray", "hex": "#4A4A4A" },
+        { "name": "Mid gray", "hex": "#8A8A8A" },
+        { "name": "Light gray", "hex": "#E5E5E5" },
+        { "name": "White", "hex": "#FFFFFF" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Lockout",
+  "company": "The Lockout Co",
+  "order": 1,
+  "logo": "logo.png",
+  "groups": [
+    {
+      "name": "Brand",
+      "colors": [
+        { "name": "Navy", "hex": "#25395C" },
+        { "name": "Teal", "hex": "#45B1BF" },
+        { "name": "Blue", "hex": "#1F6FEB" }
+      ]
+    },
+    {
+      "name": "Status",
+      "colors": [
+        { "name": "Critical red", "hex": "#D64545" },
+        { "name": "Warning orange", "hex": "#E8872B" },
+        { "name": "Caution yellow", "hex": "#F2C037" },
+        { "name": "Safe green", "hex": "#2E9D63" }
+      ]
+    },
+    {
+      "name": "Neutral",
+      "colors": [
+        { "name": "Black", "hex": "#000000" },
+        { "name": "Ink", "hex": "#141A22" },
+        { "name": "Slate", "hex": "#5A6473" },
+        { "name": "Border gray", "hex": "#E2E5EA" },
+        { "name": "Surface gray", "hex": "#F4F5F7" },
+        { "name": "White", "hex": "#FFFFFF" }
+      ]
+    }
+  ]
+}

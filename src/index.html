@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand design guidelines</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' fill='%232457d6'/%3E%3Cpath fill='white' d='M128 48 56 76v52c0 46 30 76 72 92 42-16 72-46 72-92V76Z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="controls" aria-label="Search and options">
+      <header class="brand">
+        <img class="company-logo" src="brand/info-services.png" alt="Info Services">
+        <h1>Brand design guidelines</h1>
+        <p id="meta" class="muted">Loading icons…</p>
+      </header>
+
+      <div class="field">
+        <label for="project" class="label">Project</label>
+        <select id="project"></select>
+        <div class="project-card"><img id="logo" alt=""></div>
+      </div>
+
+      <div class="field">
+        <label for="q" class="label">Search</label>
+        <input id="q" type="search" placeholder="Name or keyword, like alert" autocomplete="off" spellcheck="false">
+      </div>
+
+      <fieldset class="field">
+        <legend class="label">Weight</legend>
+        <div class="weights" id="weights"></div>
+      </fieldset>
+
+      <div class="field">
+        <label for="size" class="label">Size</label>
+        <div class="size-row">
+          <input id="size" type="range" min="16" max="256" step="4" value="32">
+          <span class="number"><input id="sizeNum" type="number" min="8" max="1024" value="32" aria-label="Size in pixels"><span class="muted">px</span></span>
+        </div>
+      </div>
+
+      <div class="field" id="colorField">
+        <span class="label" id="colorLabel">Color</span>
+        <div class="color-rows">
+          <button class="color-btn" id="color1" type="button" aria-haspopup="dialog" aria-expanded="false">
+            <span class="sw" id="sw1"></span>
+            <span class="cl"><span class="ct" id="ct1">Color</span><span class="ch" id="ch1"></span></span>
+          </button>
+          <button class="color-btn" id="color2" type="button" aria-haspopup="dialog" aria-expanded="false" hidden>
+            <span class="sw" id="sw2"></span>
+            <span class="cl"><span class="ct" id="ct2">Secondary</span><span class="ch" id="ch2"></span></span>
+          </button>
+        </div>
+        <div class="op-row" id="opRow" hidden>
+          <label for="op2">Secondary opacity</label>
+          <input id="op2" type="range" min="5" max="100" step="5" value="20">
+          <span id="op2v" class="op-val">20%</span>
+        </div>
+        <p class="hint" id="colorHint"></p>
+      </div>
+
+      <nav class="field" aria-label="Categories">
+        <span class="label">Category</span>
+        <ul class="cats" id="cats"></ul>
+      </nav>
+
+      <footer class="foot muted">
+        <a href="LICENSE-phosphor.txt">Phosphor Icons license</a>
+      </footer>
+    </aside>
+
+    <main class="results">
+      <div class="toolbar">
+        <p id="count" class="muted" aria-live="polite"></p>
+      </div>
+      <ul class="grid" id="grid"></ul>
+      <div id="empty" class="empty" hidden>
+        <p id="emptyMsg"></p>
+        <button id="clearFilters" class="btn" type="button">Clear search and category</button>
+      </div>
+      <div id="sentinel" aria-hidden="true"></div>
+    </main>
+
+    <aside class="detail" id="detail" aria-label="Icon details" hidden>
+      <div class="detail-head">
+        <div>
+          <h2 id="dName" tabindex="-1"></h2>
+          <p id="dPascal" class="muted"></p>
+        </div>
+        <button id="dClose" class="icon-btn" type="button" aria-label="Close details">
+          <svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128 50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"/></svg>
+        </button>
+      </div>
+
+      <div class="preview" id="dPreview"></div>
+
+      <div class="actions">
+        <button id="aCopySvg" class="btn primary" type="button">Copy SVG</button>
+        <button id="aCopyPng" class="btn" type="button">Copy PNG</button>
+        <button id="aCopyJsx" class="btn" type="button">Copy JSX</button>
+        <button id="aDlSvg" class="btn" type="button">Download SVG</button>
+        <button id="aDlPng" class="btn" type="button">Download PNG</button>
+      </div>
+
+      <section class="block">
+        <h3>Weights</h3>
+        <div class="weight-strip" id="dWeights"></div>
+      </section>
+
+      <section class="block">
+        <h3>Use in code</h3>
+        <dl class="snippets">
+          <dt>React (Phosphor package)</dt>
+          <dd><button class="snippet" id="sReact" type="button" title="Copy React component"></button></dd>
+          <dt>Icon name</dt>
+          <dd><button class="snippet" id="sName" type="button" title="Copy icon name"></button></dd>
+          <dt>File path</dt>
+          <dd><button class="snippet" id="sPath" type="button" title="Copy file path"></button></dd>
+        </dl>
+        <p class="note" id="sNote" hidden>The Phosphor React package can’t set a second color. Use Copy JSX or Copy SVG to keep it.</p>
+      </section>
+
+      <section class="block">
+        <h3>Categories and keywords</h3>
+        <p class="chips" id="dCats"></p>
+        <p class="chips" id="dTags"></p>
+      </section>
+    </aside>
+  </div>
+
+  <div class="picker" id="picker" role="dialog" aria-label="Choose a color" hidden>
+    <div class="tabs" role="tablist" aria-label="Color source">
+      <button type="button" role="tab" id="tabProject" aria-selected="true" aria-controls="panelProject">Project colors</button>
+      <button type="button" role="tab" id="tabWheel" aria-selected="false" aria-controls="panelWheel" tabindex="-1">Color wheel</button>
+    </div>
+
+    <div id="panelProject" role="tabpanel" aria-labelledby="tabProject"></div>
+
+    <div id="panelWheel" role="tabpanel" aria-labelledby="tabWheel" hidden>
+      <div class="wheel" id="wheel">
+        <div class="ring"></div>
+        <div class="sv" id="sv"></div>
+        <div class="knob" id="hueKnob"></div>
+        <div class="knob" id="svKnob"></div>
+      </div>
+      <div class="hex-row">
+        <span class="compare" aria-hidden="true"><span id="cmpOld"></span><span id="cmpNew"></span></span>
+        <label for="hex" class="hex-label">Hex</label>
+        <input id="hex" type="text" maxlength="7" spellcheck="false" autocomplete="off" aria-describedby="hexErr">
+      </div>
+      <p class="hex-err" id="hexErr" role="alert"></p>
+    </div>
+
+    <div class="picker-foot">
+      <button id="pReset" class="link" type="button"></button>
+      <button id="pDone" class="btn" type="button">Done</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
